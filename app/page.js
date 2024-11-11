@@ -1,100 +1,109 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white flex flex-col">
+      {/* Navbar */}
+      <nav className="w-full py-4 px-8 sm:px-16 bg-white border-b border-gray-200 flex justify-between items-center shadow-md">
+        <div className="flex items-center space-x-2">
+        <Image src="/images/AITutorLogo.png" alt="App Logo" width={50} height={50} />
+          <div className="text-2xl font-bold text-blue-500">AITutor</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        
+        {/* Navigation Links */}
+        <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
+          <Link href="/" className="hover:text-blue-500 transition-colors">
+            Home
+          </Link>
+          <Link href="#features" className="hover:text-blue-500 transition-colors">
+            Features
+          </Link>
+          <Link href="#about" className="hover:text-blue-500 transition-colors">
+            About
+          </Link>
+          <Link href="#contact" className="hover:text-blue-500 transition-colors">
+            Contact
+          </Link>
+        </div>
+
+        {/* Call to Action Button */}
+        <Link
+          href="/signup"
+          className="bg-blue-500 text-white py-2 px-6 rounded-full font-semibold shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          Get Started
+        </Link>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="flex flex-col items-center text-center mt-20 px-12">
+        <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-4">
+          A{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+            fully featured
+          </span>{" "}
+          AI tutor app
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
+          Your personalized AI-powered tutor designed to make learning faster, smarter, and more efficient.
+        </p>
+
+        {/* Call to Action Buttons */}
+        <div className="mt-10 flex gap-4">
+          <Link
+            href="/signup"
+            className="bg-blue-500 text-white rounded-full px-6 py-3 text-lg font-semibold transition-transform transform hover:scale-105"
+          >
+            Get Started
+          </Link>
+          <Link
+            href="#features"
+            className="border border-blue-500 text-blue-500 rounded-full px-6 py-3 text-lg font-semibold transition-transform transform hover:scale-105"
+          >
+            Learn More
+          </Link>
+        </div>
+      </header>
+
+      {/* Features Section */}
+      <section id="features" className="mt-20 max-w-4xl mx-auto text-center space-y-10 px-8">
+        <h2 className="text-3xl font-semibold text-gray-900">
+          Why Choose <span className="text-blue-500">AI Tutor</span>?
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-2">
+          <div className="p-6 border rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-gray-800">Personalized Learning</h3>
+            <p className="text-gray-600 mt-2">
+              Tailored lessons to match your pace and learning style.
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-gray-800">24/7 Availability</h3>
+            <p className="text-gray-600 mt-2">
+              Learn whenever, wherever with always-on support.
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-gray-800">Instant Feedback</h3>
+            <p className="text-gray-600 mt-2">
+              Real-time feedback to help you improve continuously.
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-gray-800">Adaptive Content</h3>
+            <p className="text-gray-600 mt-2">
+              AI-driven insights adjust content as you grow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="mt-20 py-8 border-t text-gray-600 text-sm text-center">
+        <p>
+          © {new Date().getFullYear()} AI Tutor. All rights reserved.
+        </p>
       </footer>
     </div>
   );
